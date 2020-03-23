@@ -1,6 +1,6 @@
 {
   "name": "storybook-theme-knob",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Storybook decorator that applies a theme knob to the knobs panel given a list of theme objects each containing an id and an imported css file",
   "main": "./dist/index.js",
   "scripts": {
@@ -10,7 +10,8 @@
   "author": "Alex Wilson (CodeByAlex)",
   "license": "ISC",
   "dependencies": {
-    "@storybook/addon-knobs": "^5.3.17"
+    "@storybook/addon-knobs": "^6.0.0-alpha.27",
+    "@storybook/addon-toolbars": "^6.0.0-alpha.27"
   },
   "devDependencies": {
     "typescript": "^3.8.3",

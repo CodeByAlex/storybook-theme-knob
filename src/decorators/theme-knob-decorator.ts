@@ -5,7 +5,7 @@ const DIV_TAG_NAME = 'div';
 const ID_PREFIX = 'storybook-theme-decorator'; 
 const ID_NONE = 'none';
 const THEME_KNOB_NAME = 'Theme';
-
+const CIRCLE_ICON = 'circlehollow';
 /**
  * Function used to modify a style tags meda attribute
  * @param element 
@@ -96,11 +96,19 @@ const resetTheme = (themeIds) => {
  * decorator used to apply a theme knob to a story panel
  * @param themes 
  */
-export const withTheme = (themes: any[]) => (storyFn, context) => { 
-    const themeIds = [ID_NONE, ...themes.map(obj => obj.id)]; 
-    const defaultTheme = themes ? themes.filter(obj => obj.default === true)[0] : ID_NONE; 
-    const chosenTheme = getThemeById(select(THEME_KNOB_NAME, themeIds, defaultTheme.id), themes); 
-    resetTheme(themeIds); 
-    setTheme(chosenTheme); 
+export const withTheme = (themes: any[]) => (storyFn, context, {globalArgs}) => { 
+    const themeIds = [ID_NONE, ...themes.map(obj => obj.id)];
+    const defaultValue = themes ? themes.filter(obj => obj.default === true)[0].id : ID_NONE;
+    globalArgs = {
+        ...globalArgs,
+        theme: {
+            name: 'Theme',
+            description: 'Global theme for components',
+            defaultValue: defaultValue,
+            toolbar: { icon: CIRCLE_ICON, items: themeIds },
+        }
+    }
+    resetTheme(themeIds);
+    setTheme(getThemeById(select(THEME_KNOB_NAME, themeIds, defaultValue), themes)); 
     return storyFn(context); 
 };
