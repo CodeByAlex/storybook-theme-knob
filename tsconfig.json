@@ -1,0 +1,25 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+      "rootDir": "./src",
+      "baseUrl": ".",
+      "incremental": false,
+      "noImplicitAny": false,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "module": "commonJs",
+      "skipDefaultLibCheck": true,
+      "skipLibCheck": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "target": "es5",
+      "lib": ["es2017", "dom"],
+      "allowJs": true,
+    },
+    "exclude": [
+      "dist",
+      "node_modules",
+      "scripts",
+    ]
+  }
+  
