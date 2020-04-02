@@ -5,21 +5,21 @@ A decorator that, when applied, includes a theme knob as the first knob in the p
 ## Usage
 The following can be applied globally or in a story config:
 ```
-addDecorator([
+addDecorator(withTheme([
     {
         id: 'Theme one',
-        code:`<style>${require(!css-loader!../theme1.css')</style>}`,
+        code:`<style>${require('!css-loader!../theme1.css')}</style>`,
         defualt: true
     },
     {
         id: 'Theme two',
-        code:`<style>${require(!css-loader!../theme2.css')</style>}`,
+        code:`<style>${require('!css-loader!../theme2.css')}</style>`,
         defualt: false
     },
     {
         id: 'Theme three',
-        code:`<style>${require(!css-loader!../theme3.css')</style>}`,
+        code:`<style>${require('!css-loader!../theme3.css')}</style>`,
         defualt: false
     },
-])
+]))
 ```
