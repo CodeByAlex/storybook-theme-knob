@@ -1,4 +1,4 @@
-import { select } from '@storybook/addon-knobs';
+const knobs = require('@storybook/addon-knobs');
 
 const STYLE_TAG_NAME = 'style'; 
 const DIV_TAG_NAME = 'div'; 
@@ -99,7 +99,7 @@ const resetTheme = (themeIds) => {
 export const withTheme = (themes: any[]) => (storyFn, context) => { 
     const themeIds = [ID_NONE, ...themes.map(obj => obj.id)]; 
     const defaultTheme = themes ? themes.filter(obj => obj.default === true)[0] : ID_NONE; 
-    const chosenTheme = getThemeById(select(THEME_KNOB_NAME, themeIds, defaultTheme.id), themes); 
+    const chosenTheme = getThemeById(knobs.select(THEME_KNOB_NAME, themeIds, defaultTheme.id), themes); 
     resetTheme(themeIds); 
     setTheme(chosenTheme); 
     return storyFn(context); 
