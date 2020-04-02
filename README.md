@@ -9,17 +9,17 @@ addDecorator(withTheme([
     {
         id: 'Theme one',
         code:`<style>${require('!css-loader!../theme1.css')}</style>`,
-        defualt: true
+        default: true
     },
     {
         id: 'Theme two',
         code:`<style>${require('!css-loader!../theme2.css')}</style>`,
-        defualt: false
+        default: false
     },
     {
         id: 'Theme three',
         code:`<style>${require('!css-loader!../theme3.css')}</style>`,
-        defualt: false
+        default: false
     },
 ]))
 ```

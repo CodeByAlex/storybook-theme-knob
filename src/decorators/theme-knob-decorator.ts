@@ -98,8 +98,9 @@ const resetTheme = (themeIds) => {
  */
 export const withTheme = (themes: any[]) => (storyFn, context) => { 
     const themeIds = [ID_NONE, ...themes.map(obj => obj.id)]; 
-    const defaultTheme = themes ? themes.filter(obj => obj.default === true)[0] : ID_NONE; 
-    const chosenTheme = getThemeById(knobs.select(THEME_KNOB_NAME, themeIds, defaultTheme.id), themes); 
+    const defaultTheme = themes ? themes.filter(obj => obj.default === true)[0] : null; 
+    const defaultThemeId = defaultTheme ? defaultTheme.id : ID_NONE; 
+    const chosenTheme = getThemeById(knobs.select(THEME_KNOB_NAME, themeIds, defaultThemeId), themes); 
     resetTheme(themeIds); 
     setTheme(chosenTheme); 
     return storyFn(context); 
